@@ -17,8 +17,8 @@ sudo rm -rf /usr/lib/i3blocks
 rm -rf ~/.config/i3 
 mkdir -p .config/mpv/scripts .config/dunst Downloads Documents Music Pictures/Wallpapers Pictures/Screenshots bin github tdl tmp/postinstall opt
 cd ~/tmp/postinstall
-wget https://git.io/vpryf > ~/.config/mpv/mpv.conf
-wget https://git.io/vpryU > ~/.config/mpv/scripts/subdl.lua
+curl https://raw.githubusercontent.com/icrunchbanger/mpv-config/master/mpv.conf > ~/.config/mpv/mpv.conf
+curl https://raw.githubusercontent.com/icrunchbanger/mpv-config/master/scripts/subdl.lua > ~/.config/mpv/scripts/subdl.lua
 git clone https://github.com/icrunchbanger/android
 git clone https://github.com/icrunchbanger/dotfiles
 git clone https://github.com/BunsenLabs/bunsen-themes.git
