@@ -38,10 +38,7 @@ devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
 device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
 mapper="/dev/mapper"
 
-
-mkfs.ext4 "${device}"
-sgdisk -Z "${device}"
-wipefs -a "${device}"
+sfdisk --delete -f "${device}"
 
 sgdisk -n 0:0:+1G -t 0:ef00 "${device}"
 sgdisk -n 0:0:0 -t 0:8300 "${device}"
@@ -99,7 +96,7 @@ title Arch Linux
 linux /vmlinuz-linux
 initrd  /amd-ucode.img
 initrd /initramfs-linux.img
-options rd.luks.name=$(blkid -s UUID -o value /dev/nvme0n1p2)=cryptroot root=/dev/mapper/cryptroot rootflags=subvol=@ rd.luks.options=discard rw
+options rd.luks.name=$(blkid -s UUID -o value /dev/"${device}"p2)=cryptroot root=/dev/mapper/cryptroot rootflags=subvol=@ rd.luks.options=discard rw
 initramfs
 sed 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' /etc/sudoers > /etc/sudoers.new
 export EDITOR="cp /etc/sudoers.new"
