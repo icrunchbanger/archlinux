@@ -90,7 +90,7 @@ echo "BINARIES=(btrfs)" >> /etc/mkinitcpio.conf
 mkinitcpio -p linux
 bootctl --path=/boot/ install
 cat << LOADER > /boot/loader/loader.conf
-default Arch
+default Arch Linux
 timeout 0
 editor 0
 LOADER
