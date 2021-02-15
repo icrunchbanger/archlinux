@@ -6,9 +6,7 @@ trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 mkdir -pv /home/$USER/tmpr && cd /home/$USER/tmpr
 mkdir -pv /home/$USER/{Documents/{KDBX,Notes},Downloads,Pictures/{Wallpapers,Screenshots},wdir/{android,ISO},gitlab,tdl/ND,opt,tmp,.config,.icons,.local/bin,.themes}
-git clone https://gitlab.com/icrunchbanger/android-scripts
-git clone https://gitlab.com/icrunchbanger/dotfiles
-git clone https://gitlab.com/icrunchbanger/linux-scripts
+curl "https://api.github.com/users/icrunchbanger/repos?per_page=1000" | grep -o 'git@[^"]*' | xargs -L1 git clone
 git clone https://github.com/BunsenLabs/bunsen-themes
 git clone https://github.com/snwh/paper-icon-theme
 mv *-scripts/* /home/$USER/.local/bin
