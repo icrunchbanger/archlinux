@@ -91,7 +91,7 @@ mkinitcpio -p linux
 bootctl --path=/boot/ install
 cat << LOADER > /boot/loader/loader.conf
 default Arch
-timeout 3
+timeout 0
 editor 0
 LOADER
 cat << initramfs > /boot/loader/entries/arch.conf
