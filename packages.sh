@@ -46,6 +46,7 @@ pikaur -S --noconfirm --needed networkmanager
 pikaur -S --noconfirm --needed network-manager-applet
 
 echo "Installing basic tools"
+pikaur -S --noconfirm --needed acpilight
 pikaur -S --noconfirm --needed bc
 pikaur -S --noconfirm --needed upower
 pikaur -S --noconfirm --needed dmidecode
