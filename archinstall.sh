@@ -92,6 +92,7 @@ bootctl --path=/boot/ install
 cat << LOADER > /boot/loader/loader.conf
 default Arch
 timeout 3
+editor 0
 LOADER
 cat << initramfs > /boot/loader/entries/arch.conf
 title Arch Linux
