@@ -7,6 +7,7 @@ trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 mkdir -pv /home/$USER/tmpr && cd /home/$USER/tmpr
 mkdir -pv /home/$USER/{Documents/{KDBX,Notes},Downloads,Pictures/{Wallpapers,Screenshots},wdir/{android,ISO},github,tdl/ND,opt,tmp,.config,.local/bin}
 curl "https://api.github.com/users/icrunchbanger/repos?per_page=1000" | grep -o 'https://github.com[^"]*.git'| xargs -L1 git clone
+curl -fsSL https://raw.githubusercontent.com/manilarome/blurredfox/script/install.sh | bash -s -- stable
 mv *-scripts/* /home/$USER/.local/bin
 mv dotfiles/.[!.]* /home/$USER
 mv dotfiles/* /home/$USER/.config
