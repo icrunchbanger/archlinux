@@ -96,7 +96,7 @@ title Arch Linux
 linux /vmlinuz-linux
 initrd  /amd-ucode.img
 initrd /initramfs-linux.img
-options rd.luks.name=$(blkid -s UUID -o value /dev/"${device}"p2)=cryptroot root=/dev/mapper/cryptroot rootflags=subvol=@ rd.luks.options=discard rw
+options rd.luks.name=$(blkid -s UUID -o value "${device}"p2)=cryptroot root=/dev/mapper/cryptroot rootflags=subvol=@ rd.luks.options=discard rw
 initramfs
 sed 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' /etc/sudoers > /etc/sudoers.new
 export EDITOR="cp /etc/sudoers.new"
