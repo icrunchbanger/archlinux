@@ -29,8 +29,28 @@ sudo udevadm control --reload-rules
 sudo touch /etc/crontab
 sudo ntpd -qg
 
-rm -rf /home/$USER/{tmpr,packages.sh,postinstall.sh}
 
+if (dialog --title "GIT Private Repo" --yesno "This part of the script clones private repo! PREPARE the hardware key! Choose 'NO' if you are not aware of such a repo! " 0 0)
+
+  then
+
+git_user=$(dialog --stdout --passwordbox "Enter GIT username" 0 0) || exit 1
+git_url=$(dialog --stdout --passwordbox "Enter GIT URL" 0 0) || exit 1
+git_repo=$(dialog --stdout --passwordbox "Enter GIT repo name" 0 0) || exit 1
+git_repo_cr_pass=$(dialog --stdout --passwordbox "Enter GIT archive pass" 0 0) || exit 1
+
+
+sudo mount /dev/disk/by-uuid/a1634b55-d91d-4a61-aaf9-f898c68a75af keys
+git clone https://"$git_user":$(cat keys/auth.key)@"$git_url"/"$git_user"/"$git_repo".git
+
+sudo umount keys
+for file in private/*.zip
+  do
+    7z x "$file" -o/home/$USER/ -p"$git_repo_cr_pass"
+  done
+   fi
+
+rm -rf /home/$USER/{tmpr,packages.sh,postinstall.sh}
 
 exit 0
 
