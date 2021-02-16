@@ -70,7 +70,7 @@ btrfs subvol create /mnt/var/log
 mkdir -p /mnt/var/lib/{machines}
 chattr +C /mnt/var/lib/{machines}
 
-pacstrap /mnt base base-devel linux linux-firmware amd-ucode lvm2 btrfs-progs dosfstools e2fsprogs dhcpcd git vim wget
+pacstrap /mnt base base-devel linux linux-firmware amd-ucode lvm2 btrfs-progs dosfstools e2fsprogs dhcpcd git vim wget dialog
 genfstab -p /mnt >> /mnt/etc/fstab
 
 

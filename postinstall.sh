@@ -13,6 +13,9 @@ mv dotfiles/* /home/$USER/.config
 
 echo "exec i3"  > /home/$USER/.xinitrc
 
+yes | ssh-keygen -o -a 100 -t ed25519 -f /home/$USER/.ssh/id_ed25519 -C "keys@ilic.io"
+yes | ssh-keygen -t rsa -b 4096 -f /home/$USER/.ssh/id_rsa -C "keys@ilic.io"
+
 sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
 sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
 sudo usermod -a -G libvirt $(whoami)
@@ -28,8 +31,6 @@ sudo ntpd -qg
 
 rm -rf /home/$USER/{tmpr,packages.sh,postinstall.sh}
 
-## exec after first FF run
-## curl -fsSL https://raw.githubusercontent.com/manilarome/blurredfox/script/install.sh | bash -s -- stable
 
 exit 0
 
