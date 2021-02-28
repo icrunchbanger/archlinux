@@ -31,6 +31,8 @@ if (dialog --title "GIT Private Repo" --yesno "This part of the script clones pr
 
   then
 
+mkdir -pv /home/$USER/tmpr/keys
+
 git_user=$(dialog --stdout --passwordbox "GIT username?" 0 0) || exit 1
 git_url=$(dialog --stdout --passwordbox "GIT URL Provider?" 0 0) || exit 1
 git_repo=$(dialog --stdout --passwordbox "GIT repo name?" 0 0) || exit 1
