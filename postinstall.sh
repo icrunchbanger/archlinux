@@ -13,9 +13,6 @@ mv dotfiles/* /home/$USER/.config
 
 echo "exec i3"  > /home/$USER/.xinitrc
 
-yes | ssh-keygen -o -a 100 -t ed25519 -f /home/$USER/.ssh/id_ed25519 -C "keys@ilic.io"
-yes | ssh-keygen -t rsa -b 4096 -f /home/$USER/.ssh/id_rsa -C "keys@ilic.io"
-
 sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
 sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
 sudo usermod -a -G libvirt $(whoami)
@@ -40,8 +37,8 @@ git_repo=$(dialog --stdout --passwordbox "Enter GIT repo name" 0 0) || exit 1
 git_repo_cr_pass=$(dialog --stdout --passwordbox "Enter GIT archive pass" 0 0) || exit 1
 
 
-sudo mount /dev/disk/by-uuid/a1634b55-d91d-4a61-aaf9-f898c68a75af keys
-git clone https://"$git_user":$(cat keys/auth.key)@"$git_url"/"$git_user"/"$git_repo".git
+sudo mount /dev/disk/by-uuid/4a9c1efc-bb31-4076-8d14-51eb3ae3df5a keys
+git clone https://"$git_user":$(cat keys/wc.key)@"$git_url"/"$git_user"/"$git_repo".git
 
 sudo umount keys
 for file in private/*.zip
