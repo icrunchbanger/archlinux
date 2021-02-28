@@ -31,13 +31,13 @@ if (dialog --title "GIT Private Repo" --yesno "This part of the script clones pr
 
   then
 
-git_user=$(dialog --stdout --passwordbox "Enter GIT username" 0 0) || exit 1
-git_url=$(dialog --stdout --passwordbox "Enter GIT URL" 0 0) || exit 1
-git_repo=$(dialog --stdout --passwordbox "Enter GIT repo name" 0 0) || exit 1
-git_repo_cr_pass=$(dialog --stdout --passwordbox "Enter GIT archive pass" 0 0) || exit 1
+git_user=$(dialog --stdout --passwordbox "GIT username?" 0 0) || exit 1
+git_url=$(dialog --stdout --passwordbox "GIT URL Provider?" 0 0) || exit 1
+git_repo=$(dialog --stdout --passwordbox "GIT repo name?" 0 0) || exit 1
+git_repo_cr_pass=$(dialog --stdout --passwordbox "GIT archive pass?" 0 0) || exit 1
 
 
-sudo mount /dev/disk/by-uuid/4a9c1efc-bb31-4076-8d14-51eb3ae3df5a keys
+sudo mount /dev/disk/by-uuid/0705c416-eba6-4810-95ff-2af792d2a98d keys
 git clone https://"$git_user":$(cat keys/wc.key)@"$git_url"/"$git_user"/"$git_repo".git
 
 sudo umount keys
@@ -50,4 +50,3 @@ for file in private/*.zip
 rm -rf /home/$USER/{tmpr,packages.sh,postinstall.sh}
 
 exit 0
-
