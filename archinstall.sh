@@ -38,7 +38,7 @@ devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
 device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
 mapper="/dev/mapper"
 
-sfdisk --delete -f "${device}"
+sgdisk -Z "${device}"
 
 sgdisk -n 0:0:+1G -t 0:ef00 "${device}"
 sgdisk -n 0:0:0 -t 0:8300 "${device}"
