@@ -44,6 +44,8 @@ pikaur -S --noconfirm --needed ttf-font-awesome
 echo "Installing network tools"
 pikaur -S --noconfirm --needed networkmanager
 pikaur -S --noconfirm --needed network-manager-applet
+pikaur -S --noconfirm --needed networkmanager-openvpn
+pikaur -S --noconfirm --needed networkmanager-wireguard
 
 echo "Installing basic tools"
 
