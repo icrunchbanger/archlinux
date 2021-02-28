@@ -42,14 +42,16 @@ git_repo_cr_pass=$(dialog --stdout --passwordbox "GIT archive pass?" 0 0) || exi
 sudo mount /dev/disk/by-uuid/0705c416-eba6-4810-95ff-2af792d2a98d keys
 git clone https://"$git_user":$(cat keys/wc.key)@"$git_url"/"$git_user"/"$git_repo".git
 
+mv */*.sh /home/$USER/.local/bin/
+
 sudo umount keys
+
 for file in private/*.zip
   do
     7z x "$file" -o/home/$USER/ -p"$git_repo_cr_pass"
   done
    fi
 
-mv */*.sh /home/$USER/.local/bin/
 
 rm -rf /home/$USER/{tmpr,packages.sh,postinstall.sh}
 
