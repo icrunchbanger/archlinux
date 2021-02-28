@@ -46,6 +46,9 @@ pikaur -S --noconfirm --needed networkmanager
 pikaur -S --noconfirm --needed network-manager-applet
 
 echo "Installing basic tools"
+
+pikaur -S --noconfirm --needed bash-completion
+pikaur -S --noconfirm --needed hdparm
 pikaur -S --noconfirm --needed acpilight
 pikaur -S --noconfirm --needed bc
 pikaur -S --noconfirm --needed upower
