@@ -120,7 +120,6 @@ pikaur -S --noconfirm --needed gpicview
 pikaur -S --noconfirm --needed gtk-engine-murrine
 pikaur -S --noconfirm --needed glances
 pikaur -S --noconfirm --needed inkscape
-pikaur -S --noconfirm --needed keepassxc
 pikaur -S --noconfirm --needed lxappearance
 pikaur -S --noconfirm --needed maim
 pikaur -S --noconfirm --needed mupdf
