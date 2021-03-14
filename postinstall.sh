@@ -22,6 +22,10 @@ echo "options kvm-amd nested=1" | sudo tee /etc/modprobe.d/kvm-amd.conf
 sudo systemctl --now enable NetworkManager
 sudo systemctl --now enable cronie
 sudo systemctl --now enable libvirtd
+sudo systemctl --now disable systemd-resolved
+sudo systemctl --now disable systemd-networkd
+sudo systemctl --now disable systemd-hostnamed
+
 sudo udevadm control --reload-rules
 sudo touch /etc/crontab
 sudo ntpd -qg
