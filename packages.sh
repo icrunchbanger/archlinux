@@ -98,7 +98,7 @@ pikaur -S --noconfirm --needed dnsmasq
 
 echo "Installing text editors"
 pikaur -S --noconfirm --needed geany
-pikaur -S --noconfirm --needed neovim
+pikaur -S --noconfirm --needed vim
 
 echo "Installing DE"
 pikaur -S --noconfirm --needed i3-gaps
