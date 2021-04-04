@@ -12,6 +12,9 @@ mv *-scripts/* /home/$USER/.local/bin
 mv dotfiles/.[!.]* /home/$USER
 mv dotfiles/* /home/$USER/.config
 
+git clone https://github.com/vinceliuice/Tela-icon-theme
+bash Tela-icon-theme/install.sh black
+
 echo "exec i3"  > /home/$USER/.xinitrc
 
 sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
