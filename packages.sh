@@ -104,7 +104,6 @@ echo "Installing DE"
 pikaur -S --noconfirm --needed i3-gaps
 pikaur -S --noconfirm --needed i3blocks
 pikaur -S --noconfirm --needed i3lock
-pikaur -S --noconfirm --needed tela-icon-theme-git
 
 echo "Installing common software"
 pikaur -S --noconfirm --needed alacritty
