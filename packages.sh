@@ -14,7 +14,7 @@ if [[ ! $(command -v pikaur) ]]
 then
     echo "Installing Pikaur"
     cd /tmp
-    wget https://aur.archlinux.org/cgit/aur.git/snapshot/pikaur.tar.gz
+    curl https://aur.archlinux.org/cgit/aur.git/snapshot/pikaur.tar.gz -o pikaur.tar.gz
     tar zxvf pikaur.tar.gz
     cd pikaur
     makepkg -si --noconfirm
@@ -91,7 +91,6 @@ pikaur -S --noconfirm --needed whois
 pikaur -S --noconfirm --needed xautolock
 pikaur -S --noconfirm --needed xclip
 pikaur -S --noconfirm --needed inotify-tools
-pikaur -S --noconfirm --needed iptables
 pikaur -S --noconfirm --needed ebtables
 pikaur -S --noconfirm --needed bridge-utils
 pikaur -S --noconfirm --needed dnsmasq
@@ -147,6 +146,7 @@ pikaur -S --noconfirm --needed virt-viewer
 pikaur -S --noconfirm --needed qemu
 pikaur -S --noconfirm --needed vde2
 pikaur -S --noconfirm --needed libguestfs
+pikaur -S --noconfirm --needed ovmf
 
 echo "Microcode update"
 pikaur -S --noconfirm --needed amd-ucode
